@@ -1,0 +1,12 @@
+<UserControl x:Class="wpfdotnet.UI.CardItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border BorderBrush="#ccc" BorderThickness="1" CornerRadius="8" Margin="10" Padding="10" Background="White">
+        <StackPanel>
+            <Image Source="{Binding ImageUrl}" Height="150" Stretch="UniformToFill"/>
+            <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="Bold" Margin="0,10"/>
+            <TextBlock Text="{Binding Artist}" FontStyle="Italic" Margin="0,5"/>
+            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" MaxHeight="60"/>
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -1,0 +1,11 @@
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\wpfdotnet.csproj.AssemblyReference.cache
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\UI\CardItem.baml
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\UI\EditWindow.baml
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\UI\CardItem.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\UI\EditWindow.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\UI\MainWindow.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\App.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\wpfdotnet_MarkupCompile.cache
+D:\Projets\wpfdotnet\obj\Debug\net8.0-windows\wpfdotnet_MarkupCompile.lref
