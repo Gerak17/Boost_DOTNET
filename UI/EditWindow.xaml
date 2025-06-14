@@ -16,7 +16,7 @@
             <Label Content="URL de l'image"/>
             <TextBox x:Name="ImageUrlBox" Margin="0,0,0,10"/>
 
-            <Button Content="Enregistrer" Click="Save_Click" HorizontalAlignment="Right" Width="100"/>
+            <Button x:Name="SaveButton" Content="Enregistrer" Click="Save_Click" HorizontalAlignment="Right" Width="100"/>
         </StackPanel>
     </Grid>
 </Window>
