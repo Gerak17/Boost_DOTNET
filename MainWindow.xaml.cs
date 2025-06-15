@@ -8,22 +8,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+
+using Microsoft.Extensions.Configuration;
 
 using wpfdotnet.Model;
 using wpfdotnet.Service;
 using wpfdotnet.UI;
+using wpfdotnet.Data;
 
 namespace wpfdotnet;
 
 public partial class MainWindow : Window
 {
-    private readonly ArtpieceService _service = new();
+    private readonly ArtpieceService _service;
+    private ObservableCollection<Artpiece> _artpieces = new();
 
-    public MainWindow()
+    public MainWindow(IConfiguration configuration)
     {
         try
         {
             InitializeComponent();
+
+            var dbContext = new AppDbContext(configuration);
+            _service = new ArtpieceService(dbContext);
+
             LoadData();
         }
         catch (Exception ex)
@@ -34,7 +43,19 @@ public partial class MainWindow : Window
 
     private void LoadData()
     {
-        CardList.ItemsSource = _service.GetAll();
+        Application.Current.Dispatcher.Invoke(() =>
+        {
+            var items = _service.GetAll();
+            _artpieces.Clear();
+
+            foreach (var item in items)
+            {
+                _artpieces.Add(item);
+            }
+
+            CardList.ItemsSource = _artpieces; 
+        });
+        
     }
 
     private void Add_Click(object sender, RoutedEventArgs e)
@@ -57,7 +78,7 @@ public partial class MainWindow : Window
         editWindow.ShowDialog();
     }
 
-    private void Edit_Click(Artpiece artpiece)
+    public void Edit_Click(Artpiece artpiece)
     {
         var editWindow = new EditWindow(artpiece, updated =>
         {
@@ -67,7 +88,7 @@ public partial class MainWindow : Window
         editWindow.ShowDialog();
     }
 
-    private void Delete_Click(Artpiece artpiece)
+    public void Delete_Click(Artpiece artpiece)
     {
         if (MessageBox.Show("Supprimer cette œuvre ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
         {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wpfdotnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12c33a3241d6b406d5ca5746b0abc0bb9f67ff7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ddd462185312b839d256fa45b3417d228f71439")]
 [assembly: System.Reflection.AssemblyProductAttribute("wpfdotnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wpfdotnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

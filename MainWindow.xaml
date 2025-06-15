@@ -10,7 +10,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Content="Ajouter une œuvre" Click="Add_Click" HorizontalAlignment="Left" Margin="10" Width="150"/>
+        <Button Content="Ajouter une œuvre" Click="Add_Click" HorizontalAlignment="Center" Margin="10" Width="150"/>
 
         <ItemsControl Grid.Row="1" x:Name="CardList" Margin="10">
             <ItemsControl.ItemsPanel>
@@ -20,7 +20,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:CardItem DataContext="{Binding}" />
+                    <local:CardItem />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

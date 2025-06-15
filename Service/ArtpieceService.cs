@@ -7,7 +7,12 @@ namespace wpfdotnet.Service
 {
     public class ArtpieceService
     {
-        private readonly AppDbContext _context = new();
+        private readonly AppDbContext _context;
+        
+        public ArtpieceService(AppDbContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
         public List<Artpiece> GetAll() => _context.Artpieces.ToList();
 
