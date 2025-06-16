@@ -13,16 +13,18 @@ namespace wpfdotnet.UI
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var artpiece = DataContext as Artpiece;
-            var window = Window.GetWindow(this) as MainWindow;
-            window?.Edit_Click(artpiece);
+            if (DataContext is Artpiece artpiece)
+            {
+                (Window.GetWindow(this) as MainWindow)?.Edit_Click(artpiece);
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            var artpiece = DataContext as Artpiece;
-            var window = Window.GetWindow(this) as MainWindow;
-            window?.Delete_Click(artpiece);
+            if (DataContext is Artpiece artpiece)
+            {
+                (Window.GetWindow(this) as MainWindow)?.Delete_Click(artpiece);
+            }
         }
     }
 }

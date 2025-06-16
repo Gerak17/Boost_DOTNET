@@ -1,18 +1,68 @@
 <UserControl x:Class="wpfdotnet.UI.CardItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:wpfdotnet.UI">
-    <Border BorderBrush="#ccc" BorderThickness="1" CornerRadius="8" Margin="10" Padding="10" Background="White">
-        <StackPanel>
-            <Image Source="{Binding ImageUrl}" Height="150" Stretch="UniformToFill"/>
-            <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="Bold" Margin="0,10"/>
-            <TextBlock Text="{Binding Artist}" FontStyle="Italic" Margin="0,5"/>
-            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" MaxHeight="60"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Button Content="Modifier" Click="Edit_Click" Margin="0,0,5,0" />
-                <Button Content="Supprimer" Click="Delete_Click" Background="Red" Foreground="White"/>
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Width="200" Height="350">
+    <materialDesign:Card Margin="10" UniformCornerRadius="12" Padding="8"
+                         materialDesign:ElevationAssist.Elevation="Dp4">
+        <materialDesign:Card.RenderTransform>
+            <ScaleTransform CenterX="100" CenterY="175"/>
+        </materialDesign:Card.RenderTransform>
+        <materialDesign:Card.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" 
+                                         To="1.05" Duration="0:0:0.3"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" 
+                                         To="1.05" Duration="0:0:0.3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" 
+                                         To="1" Duration="0:0:0.3"/>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" 
+                                         To="1" Duration="0:0:0.3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </materialDesign:Card.Triggers>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding ImageUrl, FallbackValue='https://via.placeholder.com/230x180'}"  
+                   Height="180" Stretch="UniformToFill" ClipToBounds="True"
+                   AutomationProperties.Name="Image de l'œuvre">
+                <Image.Clip>
+                    <RectangleGeometry Rect="0,0,230,180" RadiusX="0" RadiusY="0"/>
+                </Image.Clip>
+            </Image>
+            <StackPanel Grid.Row="1" Margin="10,5,10,0" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Title, FallbackValue='Titre inconnu'}" FontSize="18" FontWeight="SemiBold" 
+                           Foreground="{DynamicResource MaterialDesignBody}"
+                           AutomationProperties.Name="Titre de l'œuvre"/>
+                <TextBlock Text="{Binding Artist, FallbackValue='Artiste inconnu'}" FontSize="14" FontStyle="Italic" 
+                           Margin="0,5,0,0" Foreground="#BD83B8"
+                           AutomationProperties.Name="Nom de l'artiste"/>
+                <TextBlock Text="{Binding Description, FallbackValue='Aucune description'}" FontSize="12" 
+                           TextWrapping="Wrap" Margin="0,5,0,0" MaxHeight="70" 
+                           Foreground="{DynamicResource MaterialDesignBody}"
+                           AutomationProperties.Name="Description de l'œuvre"/>
             </StackPanel>
-        </StackPanel>
-    </Border>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                <Button Content="{materialDesign:PackIcon Kind=Pencil, Size=16}" ToolTip="Modifier" 
+                        Click="Edit_Click" Style="{StaticResource EditButton}" Margin="0,0,10,0" 
+                        Width="40" Height="40" AutomationProperties.Name="Modifier l'œuvre"/>
+                <Button Content="{materialDesign:PackIcon Kind=Delete, Size=16}" ToolTip="Supprimer" 
+                        Click="Delete_Click" Style="{StaticResource DeleteButton}" Margin="10,0,0,0" 
+                        Width="40" Height="40" AutomationProperties.Name="Supprimer l'œuvre"/>
+            </StackPanel>
+        </Grid>
+    </materialDesign:Card>
 </UserControl>

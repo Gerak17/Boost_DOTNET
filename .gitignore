@@ -1,4 +1,9 @@
+# Dossiers générés par .NET
 bin/
 obj/
+
+# Visual Studio Code
 .vscode/
+
+# Configuration sensible
 appsettings.json

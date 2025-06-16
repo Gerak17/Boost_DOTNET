@@ -21,15 +21,17 @@ public partial class App : Application
   protected override void OnStartup(StartupEventArgs e)
   {
     base.OnStartup(e);
-    
+
     try
     {
-        MainWindow = new MainWindow(_configuration);
-        MainWindow.Show(); 
+      MainWindow = new MainWindow(_configuration);
+      MainWindow.Show();
     }
     catch (Exception ex)
     {
-        System.Windows.MessageBox.Show($"Erreur lors de Show(): {ex.Message}");
+      System.Windows.MessageBox.Show($"Erreur lors de Show(): {ex.Message}\n\nStackTrace: {ex.StackTrace}", 
+        "Erreur d'initialisation", MessageBoxButton.OK, MessageBoxImage.Error);
+      Shutdown();
     }
   }             
 }
