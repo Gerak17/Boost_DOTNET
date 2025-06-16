@@ -1,8 +1,8 @@
-Gestion des œuvres artistiques en WPF avec EF Core et PostgreSQL  
+# Gestion des œuvres artistiques en WPF avec EF Core et PostgreSQL  
 
-    Projet WPF pour gérer une base d'œuvres artistiques via une interface moderne et un système CRUD complet. 
+Projet WPF pour gérer une base d'œuvres artistiques via une interface moderne et un système CRUD complet. 
 
-## À propos 
+# À propos 
 
 Ce projet permet de : 
 
@@ -14,7 +14,7 @@ Ce projet permet de :
       
      
 
-## Fonctionnalités
+# Fonctionnalités
 
 Ajout d’œuvre
 Formulaire d’ajout avec validation
@@ -35,7 +35,7 @@ Base de données
 PostgreSQL + EF Core 8
  
  
-## Technologies utilisées 
+# Technologies utilisées 
 
 C# / .NET 8 
 WPF  (Windows Presentation Foundation)
@@ -44,7 +44,7 @@ MaterialDesignThemes.Wpf  et MaterialDesignColors
 PostgreSQL  comme moteur de base de données
      
 
-## Structure du projet 
+# Structure du projet 
  
 wpfdotnet/
 │
@@ -73,7 +73,7 @@ wpfdotnet/
  
  
  
-## Prérequis 
+# Prérequis 
 
 Avant de commencer, assurez-vous d’avoir : 
 
@@ -83,23 +83,23 @@ Avant de commencer, assurez-vous d’avoir :
     Package NuGet : Npgsql.EntityFrameworkCore.PostgreSQL
     Package NuGet : MaterialDesignThemes.Wpf, MaterialDesignColors
     
-## Installation des dépendances
+# Installation des dépendances
 
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version x.x.x
 dotnet add package Microsoft.EntityFrameworkCore.Design --version x.x.x
 dotnet add package MaterialDesignThemes.Wpf --version x.x.x
 dotnet add package MaterialDesignColors --version x.x.x
 
-## Démarrage rapide 
+# Démarrage rapide 
 
-# Restaurer les packages
+## Restaurer les packages
 dotnet restore
 
-# Générer les migrations
+## Générer les migrations
 dotnet ef migrations add Init
 
-# Appliquer la base
+## Appliquer la base
 dotnet ef database update
 
-# Lancer l'application
+## Lancer l'application
 dotnet run
